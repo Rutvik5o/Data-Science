@@ -11,6 +11,17 @@ x,y = make_classification(n_samples=1000,n_features=10,n_classes=2,random_state=
 x_train,x_test,y_train,y_test = train_test_split(x,y,random_state=42)
 '''X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42) Here, 30% of data will go to the test set. ex: output(750,10) 10 means-> number of features in your dataset
 '''
+
+'''optional'''
+inp = int(input("Enter 1 if 'Download Data' other Enter : 2->"))
+
+if inp == 1:
+    import pandas as pd
+    df=pd.DataFrame(x,columns=[f"Feature_{i}" for i in range(1,11)])
+    df["Target"] = y
+
+    df.to_excel("Classfication_data.xlsx",index=False)
+    print("PDF done")
 #function used to generate sythetic(fake) classification datasets for testing and practicing ml models.
 
 #random state: seed for reproducibility
@@ -37,3 +48,5 @@ clf.fit(x_train,y_train)
 accuracy  = clf.score(x_test,y_test)
 
 print(f"The Accuracy is {accuracy}")
+
+#dfnsa
